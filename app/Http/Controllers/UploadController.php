@@ -12,8 +12,8 @@ class UploadController extends Controller
      */
     public function upload(Request $request)
     {
-        if (!$request->user() || !$request->user()->is_admin) {
-            return response()->json(['message' => 'Unauthorized admin access required.'], 403);
+        if (!$request->user()) {
+            return response()->json(['message' => 'Unauthorized access.'], 401);
         }
 
         $request->validate([
