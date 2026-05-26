@@ -31,25 +31,6 @@ Route::get('/test', function () {
     ]);
 });
 
-Route::get('/migrate-db', function () {
-    try {
-        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
-            '--seed' => true,
-            '--force' => true,
-        ]);
-        return response()->json([
-            'success' => true,
-            'message' => 'Database migrated and seeded successfully!',
-            'output' => \Illuminate\Support\Facades\Artisan::output()
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'success' => false,
-            'message' => $e->getMessage()
-        ], 500);
-    }
-});
-
 /*
 |--------------------------------------------------------------------------
 | Public Routes
