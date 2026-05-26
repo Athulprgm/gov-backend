@@ -30,6 +30,11 @@ class TimelineController extends Controller
             'phase_en' => 'required|string|max:255',
             'desc_ml' => 'required|string',
             'desc_en' => 'required|string',
+            'government_en' => 'required|string|max:255',
+            'government_ml' => 'required|string|max:255',
+            'stats_en' => 'nullable|string|max:255',
+            'stats_ml' => 'nullable|string|max:255',
+            'icon' => 'nullable|string|max:255',
         ]);
 
         $milestone = TimelineMilestone::create($validated);
@@ -54,6 +59,11 @@ class TimelineController extends Controller
             'phase_en' => 'sometimes|required|string|max:255',
             'desc_ml' => 'sometimes|required|string',
             'desc_en' => 'sometimes|required|string',
+            'government_en' => 'sometimes|required|string|max:255',
+            'government_ml' => 'sometimes|required|string|max:255',
+            'stats_en' => 'sometimes|nullable|string|max:255',
+            'stats_ml' => 'sometimes|nullable|string|max:255',
+            'icon' => 'sometimes|nullable|string|max:255',
         ]);
 
         $milestone->update($validated);

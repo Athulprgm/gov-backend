@@ -15,6 +15,11 @@ return new class extends Migration
             $table->string('phase_en');
             $table->text('desc_ml');
             $table->text('desc_en');
+            $table->string('government_en')->nullable();
+            $table->string('government_ml')->nullable();
+            $table->string('stats_en')->nullable();
+            $table->string('stats_ml')->nullable();
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

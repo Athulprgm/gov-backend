@@ -12,5 +12,10 @@ class TimelineMilestone extends Model
         'phase_en',
         'desc_ml',
         'desc_en',
+        'government_en',
+        'government_ml',
+        'stats_en',
+        'stats_ml',
+        'icon',
     ];
 }

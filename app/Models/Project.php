@@ -27,5 +27,8 @@ class Project extends Model
         'after_text_en',
         'before_img',
         'after_img',
+        'year',
+        'government_en',
+        'government_ml',
     ];
 }

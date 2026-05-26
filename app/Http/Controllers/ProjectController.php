@@ -43,6 +43,9 @@ class ProjectController extends Controller
             'after_text_en' => 'required|string',
             'before_img' => 'nullable|string',
             'after_img' => 'nullable|string',
+            'year' => 'required|string|max:255',
+            'government_en' => 'required|string|max:255',
+            'government_ml' => 'required|string|max:255',
         ]);
 
         if (empty($validated['id'])) {
@@ -85,6 +88,9 @@ class ProjectController extends Controller
             'after_text_en' => 'sometimes|required|string',
             'before_img' => 'sometimes|nullable|string',
             'after_img' => 'sometimes|nullable|string',
+            'year' => 'sometimes|required|string|max:255',
+            'government_en' => 'sometimes|required|string|max:255',
+            'government_ml' => 'sometimes|required|string|max:255',
         ]);
 
         $project->update($validated);

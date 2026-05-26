@@ -26,6 +26,9 @@ return new class extends Migration
             $table->text('after_text_en');
             $table->string('before_img')->nullable();
             $table->string('after_img')->nullable();
+            $table->string('year')->nullable();
+            $table->string('government_en')->nullable();
+            $table->string('government_ml')->nullable();
             $table->timestamps();
         });
     }
