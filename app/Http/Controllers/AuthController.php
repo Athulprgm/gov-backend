@@ -18,6 +18,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:6',
+             
         ]);
 
         // If this is the first user registering, make them admin.
@@ -84,7 +85,7 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         return response()->json([
-            'user' => $request->user(),
+            'user' => $request->user()
         ]);
     }
 }

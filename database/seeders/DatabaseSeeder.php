@@ -7,6 +7,8 @@ use App\Models\District;
 use App\Models\Project;
 use App\Models\TimelineMilestone;
 use App\Models\CitizenTestimonial;
+use App\Models\KeralaStateInfo;
+use App\Models\ChiefMinister;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -514,6 +516,61 @@ class DatabaseSeeder extends Seeder
             CitizenTestimonial::updateOrCreate(
                 ['name' => $t['name'], 'role' => $t['role']],
                 $t
+            );
+        }
+
+        // 6. Seed KeralaStateInfo
+        KeralaStateInfo::updateOrCreate(
+            ['state_name' => 'Kerala'],
+            [
+                'formed_on' => '1956-11-01',
+                'capital' => 'Thiruvananthapuram',
+                'official_language' => 'Malayalam',
+                'legislature' => 'Kerala Legislative Assembly',
+                'high_court' => 'Kerala High Court',
+                'current_governor' => 'Rajendra Arlekar',
+                'first_cm' => 'E. M. S. Namboodiripad',
+                'first_communist_cm_in_india' => 'E. M. S. Namboodiripad',
+                'only_muslim_cm' => 'C. H. Mohammed Koya',
+                'longest_serving_leaders' => ['K. Karunakaran', 'Pinarayi Vijayan'],
+                'current_cm_name' => 'V. D. Satheesan',
+                'current_cm_party' => 'Indian National Congress',
+                'current_cm_alliance' => 'UDF',
+                'current_cm_sworn_in' => '2026-05-18',
+                'current_cm_status' => 'Current Chief Minister',
+            ]
+        );
+
+        // 7. Seed ChiefMinisters
+        $cms = [
+            ['no' => 1, 'name' => 'E. M. S. Namboodiripad', 'party' => 'CPI', 'tenure' => '1957-1959'],
+            ['no' => 2, 'name' => 'Pattom A. Thanu Pillai', 'party' => 'PSP', 'tenure' => '1960-1962'],
+            ['no' => 3, 'name' => 'R. Sankar', 'party' => 'INC', 'tenure' => '1962-1964'],
+            ['no' => 4, 'name' => 'E. M. S. Namboodiripad', 'party' => 'CPI(M)', 'tenure' => '1967-1969'],
+            ['no' => 5, 'name' => 'C. Achutha Menon', 'party' => 'CPI', 'tenure' => '1969-1977'],
+            ['no' => 6, 'name' => 'K. Karunakaran', 'party' => 'INC', 'tenure' => '1977'],
+            ['no' => 7, 'name' => 'A. K. Antony', 'party' => 'INC', 'tenure' => '1977-1978'],
+            ['no' => 8, 'name' => 'P. K. Vasudevan Nair', 'party' => 'CPI', 'tenure' => '1978-1979'],
+            ['no' => 9, 'name' => 'C. H. Mohammed Koya', 'party' => 'IUML', 'tenure' => '1979'],
+            ['no' => 10, 'name' => 'E. K. Nayanar', 'party' => 'CPI(M)', 'tenure' => '1980-1981'],
+            ['no' => 11, 'name' => 'K. Karunakaran', 'party' => 'INC', 'tenure' => '1981-1982'],
+            ['no' => 12, 'name' => 'A. K. Antony', 'party' => 'INC', 'tenure' => '1982-1987'],
+            ['no' => 13, 'name' => 'E. K. Nayanar', 'party' => 'CPI(M)', 'tenure' => '1987-1991'],
+            ['no' => 14, 'name' => 'K. Karunakaran', 'party' => 'INC', 'tenure' => '1991-1995'],
+            ['no' => 15, 'name' => 'A. K. Antony', 'party' => 'INC', 'tenure' => '1995-1996'],
+            ['no' => 16, 'name' => 'E. K. Nayanar', 'party' => 'CPI(M)', 'tenure' => '1996-2001'],
+            ['no' => 17, 'name' => 'A. K. Antony', 'party' => 'INC', 'tenure' => '2001-2004'],
+            ['no' => 18, 'name' => 'Oommen Chandy', 'party' => 'INC', 'tenure' => '2004-2006'],
+            ['no' => 19, 'name' => 'V. S. Achuthanandan', 'party' => 'CPI(M)', 'tenure' => '2006-2011'],
+            ['no' => 20, 'name' => 'Oommen Chandy', 'party' => 'INC', 'tenure' => '2011-2016'],
+            ['no' => 21, 'name' => 'Pinarayi Vijayan', 'party' => 'CPI(M)', 'tenure' => '2016-2026'],
+            ['no' => 22, 'name' => 'V. D. Satheesan', 'party' => 'INC', 'tenure' => '2026-Present'],
+        ];
+
+        foreach ($cms as $cm) {
+            ChiefMinister::updateOrCreate(
+                ['no' => $cm['no'], 'name' => $cm['name']],
+                $cm
             );
         }
     }

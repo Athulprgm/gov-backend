@@ -8,6 +8,7 @@ use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GovernmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::get('/testimonials', [TestimonialController::class, 'index']);
 // Blogs
 Route::get('/blogs', [BlogController::class, 'index']);
 Route::get('/blogs/{id}', [BlogController::class, 'show']);
+
+// Government History
+Route::get('/government', [GovernmentController::class, 'index']);
 
 // Public User Profile
 Route::get('/user/profile/{id}', [BlogController::class, 'showProfile']);
@@ -155,4 +159,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/testimonials', [TestimonialController::class, 'store']);
     Route::put('/testimonials/{id}', [TestimonialController::class, 'update']);
     Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Government & CM History CRUD
+    |--------------------------------------------------------------------------
+    */
+    Route::put('/government/state-info', [GovernmentController::class, 'updateStateInfo']);
+    Route::post('/government/cms', [GovernmentController::class, 'storeCM']);
+    Route::put('/government/cms/{id}', [GovernmentController::class, 'updateCM']);
+    Route::delete('/government/cms/{id}', [GovernmentController::class, 'destroyCM']);
 });
